@@ -4,7 +4,24 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . HelloWorld --platform=win32 --arch=x64 --out=./out --asar --app-version=0.0.1 --overwrite",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.xxx.app",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -18,5 +35,10 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^12.0.5"
+  },
+  "dependencies": {
+    "ffi-napi": "^4.0.3",
+    "log4js": "^6.3.0",
+    "ref-napi": "^3.0.2"
   }
 }
